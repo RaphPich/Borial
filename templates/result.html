@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='results.css') }}">
+</head>
+<body>
+<div>{% include 'search.html' %}</div>
+<div class="results">
+  <table border="1">
+  	<thead>
+  		{% for key in result[0].keys() if key!="lien" %}
+  		<th scope="col">{{key}}</th>
+  		{% endfor %}
+  	</thead>
+  	<tbody>
+  		{% for elem in result %}
+  		<tr>
+  			<td ><a href ="{{elem['lien']}}" target="_blank">{{elem["nom"]}}</a></td>
+  			{% for key,value in elem.items() if key!="lien" and key!="nom"%}
+  			<td>{{value}}</td>
+  			{% endfor %}
+  			}
+  		</tr>
+  		{% endfor %}
+  	</tbody>
+  </table>
+ </div>
+ </body>
+ </html>
