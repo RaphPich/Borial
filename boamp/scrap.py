@@ -14,6 +14,7 @@ class Boamp:
     def __init__(self,formData):
 
         self.url = "https://www.boamp.fr"
+
         self.proxies = {
             'http': 'socks5://127.0.0.1:9050',
             'https': 'socks5://127.0.0.1:9050'
@@ -23,14 +24,20 @@ class Boamp:
             "datemiseenligne": 6,
             "fulltext": formData["keywords"]
         }
+
+        if formData['categorie']:
+            with open(os.path.dirname(os.path.abspath(__file__))+"/description.txt") as file:
+                for line in file:
+                    if categories[formData['categorie']]['BOAMP'] == line.rsplit("/")[0]:
+                        self.data["descripteur[]"] = line.rsplit("/")[1]
+
         self.annonces = []
         self.s = requests.Session()
         self.s.proxies.update(self.proxies)
         self.pages = 0
 
     def scrap(self):
-
-        r = self.s.post(self.url+"/avis/liste",data=data)
+        r = self.s.post(self.url+"/avis/liste",data=self.data,verify=False)
         soup = BeautifulSoup(r.text,'html.parser')
         self.pages = self.nbPages(soup)
         self.getAnnonceBoamp(soup = soup)
@@ -55,7 +62,7 @@ class Boamp:
 
     def getAnnonceBoamp(self,k=None,soup=False):
         if not soup:
-            r = self.s.get(self.url+"/avis/page?page="+str(k))
+            r = self.s.get(self.url+"/avis/page?page="+str(k),verify=False)
             soup = BeautifulSoup(r.text,'html.parser')
         soup = soup.find("form",{"id":"results"})
         for elem in soup.findAll("li"):
@@ -77,6 +84,9 @@ class Boamp:
             return soup.text
         except:
             return ""
+
+    def categories(self,):
+
 
 def scrapPdf():
     listPdf = os.listdir("pdfFile/")

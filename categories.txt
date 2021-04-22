@@ -1,0 +1,76 @@
+Environment and Sanitation
+Finance and Related Services
+Materials and Products
+Mining and Ores
+Other Services
+Printing and Publishing
+Research and Development
+Technology and Equipment
+
+1/ 
+	CPV : 
+		Agriculture and Food 
+	BOAMP : 
+		Alimentation en eau potable/mc6
+		Aliments pour animaux/mc7
+		Animaux/mc9
+		Arrosage/mc13
+		Matériel agricole, horticole/mc200
+		Colis alimentaire/mc65
+		Produits de l'agriculture/mc276
+		Travaux agricoles/mc348
+
+2/
+	CPV :
+		Computer and Related Services
+	BOAMP :
+		Informatique (assistance)/mc453
+		Informatique (maintenance serveurs et réseaux)/mc454
+		Informatique (matériel)/mc162
+		Informatique (prestations de services)/mc163
+
+
+
+3/
+	CPV :
+		Defence and security
+	BOAMP:
+		Armement/mc12
+
+4/
+	CPV :
+		Construction and Real Estate
+	BOAMP:
+		AMO construction/mc600
+		Abris/mc1
+		Amiante (diagnostic)/mc431
+		Démolition/mc87
+		Amiante (désamiantage)/mc479
+		Travaux d'infrastructure/mc253
+		Bâtiment/mc33
+		Bâtiments modulaires/mc27
+		Terrain de sport/mc342
+		Terrasse/mc354
+		Terrassement/mc341
+
+5/
+	CpV :
+		Energy and Related Services
+	BOAMP :
+		Electricité (travaux)/mc105
+		Electricité, gaz (fourniture)/mc443
+
+6/
+	CPV :
+		Transport and Related Services
+	BOAMP:
+		Véhicules (acquisition)/mc475
+		Véhicules (location)/mc474
+		Véhicules de secours/mc560
+
+
+
+7/ 
+	CPV : 
+		Education
+	BOAMP :

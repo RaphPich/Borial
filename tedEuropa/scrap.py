@@ -1,8 +1,9 @@
 import requests
 from datetime import date
+import json
 from bs4 import BeautifulSoup
 
-"PC=[comp or core]"
+"PC=[comp+or+core]"
 
 class TedEuropa:
 	def __init__(self,formData):
@@ -40,10 +41,18 @@ class TedEuropa:
 			import datetime
 			dateNow=datetime.datetime.now() - datetime.timedelta(days=3*365)
 			data['expertSearchCriteria.query'] = "PD=[{}+<>+{}]".format(dateNow.strftime("%Y%m%d"),datetime.datetime.now().strftime("%Y%m%d"))
+		
 		if formData['keywords']:
 			if data["expertSearchCriteria.query"]!="":
 				data['expertSearchCriteria.query'] += "+AND+"
 			data['expertSearchCriteria.query']+= "("+"+AND+".join(["FT=[{}]".format(elem) for elem in formData['keywords'].rsplit(" ")])+")"
+		
+		if formData['categorie']:
+			with open(os.path.dirname(os.path.abspath(__file__))+"/_retrieveTree.json") as file:
+				categories = json.load(file)
+				for line in categories:
+					if line['text'] == formData['categorie']:
+						data['expertSearchCriteria.query']+= "+AND+PC=[{}]".format(line['code'])
 		return data
 
 	def scrapAnnonce(self,link):

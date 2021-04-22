@@ -1,13 +1,21 @@
 Abonnement/mc2
+Abris/mc1
 Acier/mc3
 Aire d'accueil/mc430
 Aire de jeux/mc400
 Alarme/mc5
+Alimentation en eau potable/mc6
+Aliments pour animaux/mc7
+Amiante (diagnostic)/mc431
+Amiante (désamiantage)/mc479
 Analyses médicales, biologiques/mc8
+Animaux/mc9
 Antenne/mc10
 Antipollution (équipement)/mc432
 Appareil de mesure/mc500
 Appareil élévateur/mc11
+Armement/mc12
+Arrosage/mc13
 Articles de bureau et articles scolaires/mc16
 Articles funéraires, cercueils/mc401
 Articles à usage unique/mc15
@@ -37,6 +45,8 @@ Boisson/mc39
 Boîtes aux lettres/mc41
 Busage/mc40
 Bâche/mc435
+Bâtiment/mc33
+Bâtiments modulaires/mc27
 Canalisations/mc48
 Candélabre/mc49
 Caoutchouc/mc50
@@ -58,6 +68,7 @@ Climatisation/mc62
 Clocher/mc80
 Cloison, faux plafond/mc63
 Clôture/mc64
+Colis alimentaire/mc65
 Collecte sélective/mc82
 Combustible/mc438
 Compostage/mc439
@@ -90,6 +101,7 @@ Déclencheur d'avalanche, explosif/mc83
 Décoration (travaux)/mc85
 Délégation de service public/mc406
 Dématérialisation/mc97
+Démolition/mc87
 Déménagement/mc86
 Déneigement/mc98
 Dépollution/mc442
@@ -99,6 +111,8 @@ Echafaudage/mc101
 Eclairage public/mc102
 Ecluse/mc103
 Edition/mc104
+Electricité (travaux)/mc105
+Electricité, gaz (fourniture)/mc443
 Electromécanique/mc107
 Electroménager/mc108
 Enneigement artificiel/mc109
@@ -153,6 +167,10 @@ Imagerie médicale/mc313
 Implants/mc159
 Impression/mc160
 Imprimés, impression/mc161
+Informatique (assistance)/mc453
+Informatique (maintenance serveurs et réseaux)/mc454
+Informatique (matériel)/mc162
+Informatique (prestations de services)/mc163
 Ingénierie/mc455
 Insignes/mc164
 Installation portuaire/mc165
@@ -174,6 +192,7 @@ Maintenance/mc196
 Manutention/mc237
 Matériaux de construction/mc198
 Matériaux routiers/mc199
+Matériel agricole, horticole/mc200
 Matériel audiovisuel/mc22
 Matériel d'imprimerie/mc211
 Matériel de manutention/mc208
@@ -252,6 +271,7 @@ Prestations audiovisuelles/mc362
 Prestations de services/mc274
 Produits chimiques/mc275
 Produits d'entretien/mc278
+Produits de l'agriculture/mc276
 Produits de récupération/mc277
 Produits des industries diverses/mc279
 Produits métalliques/mc281
@@ -304,6 +324,9 @@ Surveillance/mc331
 Sécurité incendie/mc332
 Tabac/mc336
 Tente/mc473
+Terrain de sport/mc342
+Terrasse/mc354
+Terrassement/mc341
 Textile/mc343
 Titres de transport/mc417
 Titres restaurant/mc416
@@ -311,6 +334,8 @@ Topographie/mc344
 Tous corps d'état/mc345
 Transformateur/mc346
 Transport/mc347
+Travaux agricoles/mc348
+Travaux d'infrastructure/mc253
 Travaux dans l'eau/mc349
 Travaux de viabilité/mc353
 Travaux forestiers/mc350
@@ -327,4 +352,7 @@ Voies ferrées/mc364
 Voirie/mc365
 Voyage/mc367
 Végétaux/mc358
+Véhicules (acquisition)/mc475
+Véhicules (location)/mc474
+Véhicules de secours/mc560
 Zinguerie/mc372
