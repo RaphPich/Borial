@@ -1,6 +1,7 @@
 import requests
 from datetime import date
 import json
+import os
 from bs4 import BeautifulSoup
 
 "PC=[comp+or+core]"
@@ -87,7 +88,6 @@ class TedEuropa:
 				"lien":tr.find("a",href=True)["href"]})
 
 	def scrap(self):
-		
 		r = self.s.post(self.url+"TED/search/expertSearch.do",data = self.data)
 		soup = BeautifulSoup(r.text,'html.parser')
 		self.scrapPage(soup)

@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import csv
 import queue
 import sys
+import json
 import PyPDF2
 import os
 
@@ -21,20 +22,24 @@ class Boamp:
         }
         self.data = {"estrecherchesimple" : "1",
             "typeavis" :  "5",
-            "datemiseenligne": 6,
-            "fulltext": formData["keywords"]
+            "datemiseenligne": 6
         }
+        if formData["keywords"]:
+            self.data["fulltext"]=formData["keywords"]
 
         if formData['categorie']:
-            with open(os.path.dirname(os.path.abspath(__file__))+"/description.txt") as file:
-                for line in file:
-                    if categories[formData['categorie']]['BOAMP'] == line.rsplit("/")[0]:
-                        self.data["descripteur[]"] = line.rsplit("/")[1]
+            with open(os.path.dirname(os.path.abspath(__file__))+"/categories.json") as file:
+                self.categories = json.load(file)[formData['categorie']]['BOAMP']
 
         self.annonces = []
         self.s = requests.Session()
         self.s.proxies.update(self.proxies)
         self.pages = 0
+
+    def scrapCategories(self):
+        for categorie in self.categories:
+            self.data["descripteur[]"] = categorie
+            self.scrap()
 
     def scrap(self):
         r = self.s.post(self.url+"/avis/liste",data=self.data,verify=False)
@@ -50,7 +55,6 @@ class Boamp:
         pages = []
         newSoup = soup.find("ul",{"class":"pagination"})
         try:
-
             for elem in newSoup.findAll("a"):
                 try:
                     pages.append(int(elem["title"].rsplit(" ")[-1]))
@@ -85,7 +89,9 @@ class Boamp:
         except:
             return ""
 
-    def categories(self,):
+    def scrapAll(self):
+        for line in open(os.path.dirname(os.path.abspath(__file__))+"/description.txt").read():
+            formData['categorie']
 
 
 def scrapPdf():

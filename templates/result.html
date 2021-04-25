@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='results.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 </head>
 <body>
 <div>{% include 'search.html' %}</div>
@@ -18,7 +21,6 @@
   			{% for key,value in elem.items() if key!="lien" and key!="nom"%}
   			<td>{{value}}</td>
   			{% endfor %}
-  			}
   		</tr>
   		{% endfor %}
   	</tbody>

@@ -9,7 +9,7 @@ class Client:
 
 		self.formData = {"keywords":request.form['keywords'],
 				"startDate":request.form['dateStart'],
-				"endDate":request.form['dateEnd']
+				"endDate":request.form['dateEnd'],
 				"categorie":request.form['categorie']}
 
 		for key,value in self.formData.items():
@@ -25,15 +25,15 @@ class Client:
 		self.tedEuropa = TedEuropa(self.formData)
 
 	def scrap(self):
-
+		"""
 		start = datetime.now()
 		self.tedEuropa.scrap()
 		delta = datetime.now()-start 
 		print("tedEuropa : {} seconds".format(delta.seconds))
 		print(self.tedEuropa.annonces)
-		
+		"""
 		start = datetime.now()
-		self.boamp.scrap()
+		self.boamp.scrapCategories()
 		delta = datetime.now()-start 
 		print("Boamp : {} seconds".format(delta.seconds))
 		print(self.boamp.annonces)
@@ -42,4 +42,4 @@ class Client:
 		#self.data+=te.scrapTedEuropa(self.formData)
 
 	def data(self):
-		return self.tedEuropa.annonces +self.boamp.annonces
+		return self.boamp.annonces +self.tedEuropa.annonces
