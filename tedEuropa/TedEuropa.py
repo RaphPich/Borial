@@ -116,6 +116,7 @@ class TedEuropa:
 
         if self.pages:
             for k in range(2,self.pages+1):
+                print("{}/{}".format(k,self.pages),end="\r")
                 r = self.s.get(self.url+"TED/search/searchResult.do?page={}".format(k))
                 soup = BeautifulSoup(r.text,'html.parser')
                 self.scrapPage(soup)
