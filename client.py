@@ -10,7 +10,11 @@ class Client:
 		self.formData = {"keywords":request.form['keywords'],
 				"startDate":request.form['dateStart'],
 				"endDate":request.form['dateEnd'],
-				"categorie":request.form['categorie']}
+				"categorie":request.form['categorie'];
+				"country":request.form['countries']}
+
+		if self.formData["categorie"]=="None":
+			self.formData["categorie"] = False
 
 		for key,value in self.formData.items():
 			if value == "":
@@ -25,21 +29,21 @@ class Client:
 		self.tedEuropa = TedEuropa(self.formData)
 
 	def scrap(self):
-		"""
+		
 		start = datetime.now()
 		self.tedEuropa.scrap()
 		delta = datetime.now()-start 
 		print("tedEuropa : {} seconds".format(delta.seconds))
-		print(self.tedEuropa.annonces)
-		"""
+		print(len(self.tedEuropa.annonces))
+		
 		start = datetime.now()
-		self.boamp.scrapCategories()
+		self.boamp.scrap()
 		delta = datetime.now()-start 
 		print("Boamp : {} seconds".format(delta.seconds))
-		print(self.boamp.annonces)
+		print(len(self.boamp.annonces))
 		
 		#self.data = boamp.getAllAnnoncesBoamp(self.formData) 
 		#self.data+=te.scrapTedEuropa(self.formData)
 
 	def data(self):
-		return self.boamp.annonces +self.tedEuropa.annonces
+		return self.tedEuropa.annonces +self.boamp.annonces

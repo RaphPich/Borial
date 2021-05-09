@@ -1,2 +1,2 @@
-__all__ = ['scrap']
+__all__ = ['TedEuropa']
 from tedEuropa.scrap import *

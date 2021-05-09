@@ -1,2 +1,2 @@
-__all__ = ['scrap']
+__all__ = ['Boamp']
 from boamp.scrap import *
