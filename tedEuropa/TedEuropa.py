@@ -24,7 +24,7 @@ class TedEuropa:
 
     def cpvCode(self,s):
         import ast
-        r = s.get("https://ted.europa.eu/TED/webapp/api/refData/_retrieveTree?field=CPV&languageCode=fr&hideAllCodes=false&filter=",proxies = self.proxies)
+        r = self.s.get("https://ted.europa.eu/TED/webapp/api/refData/_retrieveTree?field=CPV&languageCode=fr&hideAllCodes=false&filter=",proxies = self.proxies)
         return ast.literal_eval(r.text)
 
     def createRequest(self,formData):
@@ -73,7 +73,7 @@ class TedEuropa:
 
     def scrapAnnonce(self,link):
         link = link.replace('TEXT','DATA')
-        r = requests.get(self.url+link,proxies = self.proxies)
+        r = self.s.get(self.url+link,proxies = self.proxies)
         soup = BeautifulSoup(r.text,'html.parser')
         soup = soup.find('table',{"class":"data"})
         annonceData={}
@@ -104,13 +104,14 @@ class TedEuropa:
                 "description":self.scrapDescription(tr.find("a",href=True)["href"])})
 
     def scrapDescription(self,link):
-        r = requests.get(self.url+link,proxies = self.proxies)
+        r = self.s.get(self.url+link,proxies = self.proxies)
         soup = BeautifulSoup(r.text,'html.parser')
         return soup.find("div",{"class":"DocumentBody"}).text
 
     def scrap(self):
         r = self.s.post(self.url+"TED/search/expertSearch.do",data = self.data)
         soup = BeautifulSoup(r.text,'html.parser')
+        print("Start scrapping ...")
         self.scrapPage(soup)
         self.pages = self.pageNumbers(soup)
 
